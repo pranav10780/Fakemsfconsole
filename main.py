@@ -62,7 +62,7 @@ while True:
       data = hp.helper(parsed[1])
       print(data)
     else:
-      print("Sorry too many arguments!")
+      print("\nSorry too many arguments!\n")
   elif parsed[0] == "banner":
     banner()
   elif parsed[0] == "connectivity":
@@ -70,8 +70,8 @@ while True:
     command=['ping','-c','1','google.com']
     pinged = subprocess.call(command)
     if pinged == 0:
-      print("\nInternet access is available")
+      print("\nInternet access is available\n")
     else:
-      print("No internet access")
+      print("\nNo internet access\n")
   else:
-    print(f'Unknown commnad {parsed[0]}')
+    print(f'\nUnknown commnad {parsed[0]}\n')

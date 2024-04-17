@@ -1,12 +1,12 @@
 def helper(data) -> "":
   match data:
-    case "help" or "?":
-      return "Help is a command which gives a list of commands that can be run."
+    case "help":
+      return "\nHelp is a command which gives a list of commands that can be run.\n"
     case "exit":
-      return "Exits from the application"
+      return "\nExits from the application\n"
     case "banner":
-      return "Prints the metaspliot banner"
+      return "\nPrints the metaspliot banner\n"
     case "connectivity":
-      return "Checks if internet access is available"
+      return "\nChecks if internet access is available\n"
     case _:
-        return "Sorry unknown command, it can't be helped"
+        return "\nSorry unknown command, it can't be helped\n"
