@@ -42,6 +42,7 @@ def banner():
 
 banner()
 from config import helper as hp
+import subprocess
 #takes input
 while True:
   data = input('msf6>')
@@ -63,6 +64,14 @@ while True:
     else:
       print("Sorry too many arguments!")
   elif parsed[0] == "banner":
-      banner()
+    banner()
+  elif parsed[0] == "connectivity":
+    #ping google.com
+    command=['ping','-c','1','google.com']
+    pinged = subprocess.call(command)
+    if pinged == 0:
+      print("\nInternet access is available")
+    else:
+      print("No internet access")
   else:
     print(f'Unknown commnad {parsed[0]}')
