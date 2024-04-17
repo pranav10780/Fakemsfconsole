@@ -58,7 +58,8 @@ while True:
         helptext = f.read()
         print(helptext)
     elif len(parsed) == 2:
-      hp.helper(parsed[1])
+      data = hp.helper(parsed[1])
+      print(data)
     else:
       print("Sorry too many arguments!")
   elif parsed[0] == "banner":
