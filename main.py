@@ -38,15 +38,22 @@ def banner():
   print('+ -- --=[ 1388 payloads - 46 encoders - 11 nops           ]')
   print('+ -- --=[ 9 evasion                                       ]')
   print()
-  print('Msome help to make it like the secondietasploit Documentation: https://docs.metasploit.com/')
+  print('Msome help to make it like the secondietasploit Documentation: google.com')
+
+def showhistory() -> None:
+  j = 1
+  for i in history:
+    print(f"{j}: {i}")
+    j+=1
 
 banner()
 from config import helper as hp
 import subprocess
+history = []
 #takes input
 while True:
   data = input('msf6>')
-
+  history.append(data)
   #parsing/spliting
   parsed = data.split()
   if len(parsed) <= 0:
@@ -73,5 +80,9 @@ while True:
       print("\nInternet access is available\n")
     else:
       print("\nNo internet access\n")
+  elif parsed[0] == "version":
+    print("\nFakemsfconsole version : \"1.0\"\n")
+  elif parsed[0] == "history":
+      showhistory()
   else:
     print(f'\nUnknown commnad {parsed[0]}\n')

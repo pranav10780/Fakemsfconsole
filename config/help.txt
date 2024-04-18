@@ -9,3 +9,6 @@ Core Commands
     help          Help menu
     banner        Display an awesome metasploit banner
     connectivity  Checks if internet is available
+    version       Shows the version
+    history
+    save

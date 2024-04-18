@@ -8,5 +8,7 @@ def helper(data) -> "":
       return "\nPrints the metaspliot banner\n"
     case "connectivity":
       return "\nChecks if internet access is available\n"
+    case "version":
+      return "\nShow the verdion\n"
     case _:
         return "\nSorry unknown command, it can't be helped\n"
