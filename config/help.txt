@@ -10,5 +10,5 @@ Core Commands
     banner        Display an awesome metasploit banner
     connectivity  Checks if internet is available
     version       Shows the version
-    history
+    history	  Shows all previous commands
     save
