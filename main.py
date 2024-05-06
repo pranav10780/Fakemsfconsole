@@ -40,17 +40,37 @@ def banner():
   print()
   print('Some help to make it like the original?')
 
+version = 1.6
+
 def showhistory() -> None:
   j = 1
   for i in history:
     print(f"{j}: {i}")
     j+=1
 
-banner()
 from config import helper as hp
 import subprocess
+import sys
 history = []
+
+#parse -h and stuff
+try:
+    if sys.argv[1] == "-h" or sys.argv[1] == "--help":
+        with open('config/help.txt','r') as f:
+            helptext = f.read()
+            print(helptext)
+            exit()
+    elif sys.argv[1] == "-v" or sys.argv[1] == '--version':
+        print(f"Version == {version}")
+        exit()
+    else:
+        print("Usage: python main.py [options]")
+        print("Available options: -h,-v,--help,--version")
+        exit()
+except IndexError as e: pass
+
 #takes input
+banner()
 try:
     while True:
         data = input('msf6>')
@@ -82,7 +102,7 @@ try:
             else:
                 print("\nNo internet access\n")
         elif parsed[0] == "version":
-            print("\nFakemsfconsole version : \"1.5\"\n")
+            print(f"\nFakemsfconsole version : {version}\n")
         elif parsed[0] == "history":
             showhistory()
         else:
