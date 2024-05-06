@@ -38,7 +38,7 @@ def banner():
   print('+ -- --=[ 1388 payloads - 46 encoders - 11 nops           ]')
   print('+ -- --=[ 9 evasion                                       ]')
   print()
-  print('Msome help to make it like the secondietasploit Documentation: google.com')
+  print('Some help to make it like the original?')
 
 def showhistory() -> None:
   j = 1
@@ -51,38 +51,41 @@ from config import helper as hp
 import subprocess
 history = []
 #takes input
-while True:
-  data = input('msf6>')
-  history.append(data)
-  #parsing/spliting
-  parsed = data.split()
-  if len(parsed) <= 0:
-    pass
-  elif parsed[0] == 'exit' :
-    exit()
-  elif parsed[0] == 'help' or parsed[0] == "?":
-    if len(parsed) == 1:
-      with open('config/help.txt','r') as f:
-        helptext = f.read()
-        print(helptext)
-    elif len(parsed) == 2:
-      data = hp.helper(parsed[1])
-      print(data)
-    else:
-      print("\nSorry too many arguments!\n")
-  elif parsed[0] == "banner":
-    banner()
-  elif parsed[0] == "connectivity":
-    #ping google.com
-    command=['ping','-c','1','google.com']
-    pinged = subprocess.call(command)
-    if pinged == 0:
-      print("\nInternet access is available\n")
-    else:
-      print("\nNo internet access\n")
-  elif parsed[0] == "version":
-    print("\nFakemsfconsole version : \"1.0\"\n")
-  elif parsed[0] == "history":
-      showhistory()
-  else:
-    print(f'\nUnknown commnad {parsed[0]}\n')
+try:
+    while True:
+        data = input('msf6>')
+        history.append(data)
+        parsed = data.split()
+
+        if len(parsed) <= 0:
+            pass
+        elif parsed[0] == 'exit':
+            exit()
+        elif parsed[0] == 'help' or parsed[0] == "?":
+            if len(parsed) == 1:
+                with open('config/help.txt', 'r') as f:
+                    helptext = f.read()
+                    print(helptext)
+            elif len(parsed) == 2:
+                data = hp.helper(parsed[1])
+                print(data)
+            else:
+                print("\nSorry too many arguments!\n")
+        elif parsed[0] == "banner":
+            banner()
+        elif parsed[0] == "connectivity":
+            # ping google.com
+            command = ['ping', '-c', '1', 'google.com']
+            pinged = subprocess.call(command)
+            if pinged == 0:
+                print("\nInternet access is available\n")
+            else:
+                print("\nNo internet access\n")
+        elif parsed[0] == "version":
+            print("\nFakemsfconsole version : \"1.0\"\n")
+        elif parsed[0] == "history":
+            showhistory()
+        else:
+            print(f'\nUnknown commnad {parsed[0]}\n')
+except EOFError as e: print("\nBye bye")
+except KeyboardInterrupt as e: print("\nBye bye")
