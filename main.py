@@ -82,7 +82,7 @@ try:
             else:
                 print("\nNo internet access\n")
         elif parsed[0] == "version":
-            print("\nFakemsfconsole version : \"1.0\"\n")
+            print("\nFakemsfconsole version : \"1.5\"\n")
         elif parsed[0] == "history":
             showhistory()
         else:
