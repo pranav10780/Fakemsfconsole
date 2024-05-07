@@ -1,5 +1,3 @@
-#!/data/data/com.termux/files/usr/bin/python
-
 #logo part
 def banner():
   print('WARNING: Nokogiri was built against libxml version 2.11.5, but has dynamically loaded 2.12.4')
@@ -40,13 +38,23 @@ def banner():
   print()
   print('Some help to make it like the original?')
 
-version = 1.6
+version = 1.7
 
 def showhistory() -> None:
   j = 1
   for i in history:
     print(f"{j}: {i}")
     j+=1
+
+def save() -> None:
+    with open("./config/saved/saved.txt","w") as f:
+        for i in history:
+            f.write(i+"\n")
+
+def showSaved() -> None:
+    with open("./config/saved/saved.txt","r") as f:
+        con = f.read()
+        print(con)
 
 from config import helper as hp
 import subprocess
@@ -105,6 +113,11 @@ try:
             print(f"\nFakemsfconsole version : {version}\n")
         elif parsed[0] == "history":
             showhistory()
+        elif parsed[0] == "save":
+            save()
+            print("Successfully saved")
+        elif parsed[0] == "showsaved":
+            showSaved()
         else:
             print(f'\nUnknown commnad {parsed[0]}\n')
 except EOFError as e: print("\nBye bye")
