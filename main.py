@@ -36,9 +36,8 @@ def banner():
   print('+ -- --=[ 1388 payloads - 46 encoders - 11 nops           ]')
   print('+ -- --=[ 9 evasion                                       ]')
   print()
-  print('Some help to make it like the original?')
 
-version = 1.7
+version = 1.8
 
 def showhistory() -> None:
   j = 1
@@ -54,7 +53,7 @@ def save() -> None:
 def showSaved() -> None:
     with open("./config/saved/saved.txt","r") as f:
         con = f.read()
-        print(con)
+        print("\n"+con)
 
 from config import helper as hp
 import subprocess
@@ -118,6 +117,7 @@ try:
             print("Successfully saved")
         elif parsed[0] == "showsaved":
             showSaved()
+            print("End of saved history")
         else:
             print(f'\nUnknown commnad {parsed[0]}\n')
 except EOFError as e: print("\nBye bye")

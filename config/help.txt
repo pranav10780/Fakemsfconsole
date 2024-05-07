@@ -11,4 +11,5 @@ Core Commands
     connectivity  Checks if internet is available
     version       Shows the version
     history       Shows all previous commands
-    save
+    save          Saves all previous commands forever
+    showsaved     Shows all previously saved
