@@ -37,7 +37,7 @@ def banner():
   print('+ -- --=[ 9 evasion                                       ]')
   print()
 
-version = 1.8
+version = 1.9
 
 def showhistory() -> None:
   j = 1
@@ -54,6 +54,18 @@ def showSaved() -> None:
     with open("./config/saved/saved.txt","r") as f:
         con = f.read()
         print("\n"+con)
+
+def setColor(color):
+    if color == "red":
+        print("\u001b[31mSelected color mode : red")
+    elif color == "green":
+        print("\u001b[32mSelected color mode : green")
+    elif color == "blue":
+        print("\u001b[34mSelected color mode : blue")
+    elif color == "white" or color == "default":
+        print("\u001b[0mSelected color mode : white")
+    else:
+        printf("Sorry not supported color: {color}")
 
 from config import helper as hp
 import subprocess
@@ -118,6 +130,14 @@ try:
         elif parsed[0] == "showsaved":
             showSaved()
             print("End of saved history")
+        elif parsed[0] == "color" or parsed[0] == "colour":
+            if len(parsed) == 1:
+                data = hp.helper(parsed[1])
+                print(data)
+            elif len(parsed) == 2:
+                setColor(parsed[1])
+            else:
+                print("Too mnay arguments")
         else:
             print(f'\nUnknown commnad {parsed[0]}\n')
 except EOFError as e: print("\nBye bye")

@@ -13,3 +13,4 @@ Core Commands
     history       Shows all previous commands
     save          Saves all previous commands forever
     showsaved     Shows all previously saved
+    color         Changes the color of the terminal. See `help color` for all options.

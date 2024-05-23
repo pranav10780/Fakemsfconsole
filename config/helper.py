@@ -16,5 +16,7 @@ def helper(data) -> "":
       return "\nInstead of showing previous commands it saves them so that it can stayed saved even if the program is closed.\nAlso there is only one file so be careful because you can override existing saved history"
     case "showsaved":
       return "\nShows the command saved by the command save.\nSee \"help save\" for more info\n"
+    case "color":
+      return "\nChanges the color of the terminal. Available options red|blue|green|white|default(white)\n"
     case _:
         return "\nSorry unknown command, it can't be helped\n"
